@@ -1,2 +1,22 @@
 # For more info on HTTP files go to https://aka.ms/vs/httpfile
-GET http://localhost:5205/movies/6
+GET https://localhost:7152/movies
+
+
+###
+POST http://localhost:5205/movies/
+Content-type:application/json
+
+{
+  "Name": "Karate Kid",
+  "Price": 2.99,
+  "GenreId": 1,
+  "ReleaseDate": "1985-01-01"
+}
+###
+PUT https://localhost:7152/movies/16
+Content-type:application/json
+
+{"name":"Karate Kid 2","price":2.98}
+
+###
+DELETE https://localhost:7152/movies/14

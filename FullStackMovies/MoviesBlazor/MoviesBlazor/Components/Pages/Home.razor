@@ -1,0 +1,41 @@
+﻿@page "/"
+@inject MoviesClient Client
+
+<PageTitle>My Movies Database!</PageTitle>
+
+<div class="row">
+
+    <h1 class="text-center text-primary">My Movies</h1>
+    @if (movies is null)
+    {
+        <p class="text-center">Loading...</p>
+    }
+    else
+    {
+        <div class="row row-cols-1 row-cols-md-3 g-4"> <!-- Bootstrap: row-cols1 = reduces the grid to 1 columns when window shrinks, max cols is 3, gutter is 4 -->
+            @foreach (Movie movie in movies)
+            {
+                <div class="col">
+                    <div class="card border-dark text-bg-light text-center mb-3 h-100" style="max-width: 50rem;">
+                        <div class="card-header alert-link">@movie.Genre?.Name</div>
+                        <div class="card-body">
+                            <h5 class="card-title alert-info">@movie.Name</h5>
+                            <p class="card-text">@movie.Price.ToString("C")</p>
+                            <p class="card-text">Released On: @movie.ReleaseDate</p>
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    private Movie[]? movies;
+
+    protected override async Task OnInitializedAsync() // This method is called when the component is initialized
+    {
+        movies = await Client.GetMoviesAsync();
+    }
+}
