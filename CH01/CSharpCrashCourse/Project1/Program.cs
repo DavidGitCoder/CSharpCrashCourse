@@ -1,5 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World 2026!");
+Console.WriteLine("Enter your name");
+string name = Console.ReadLine();
 
-Int32 x = 5;
-x.CompareTo(10);
+Console.WriteLine("Enter your age");
+int age = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine($"Hello {name}, you are {age}");
+
+
