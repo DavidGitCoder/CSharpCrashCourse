@@ -10,7 +10,6 @@ namespace MoviesAPI.Entities
         [Required] //Attribute from DataAnnotations to enforce data validation -- Entity Framework will map to a database table model
         [StringLength(50)]
         public required string Name { get; set; }
-
         [Required]
         [Range(1, 100)]
         public decimal Price { get; set; }

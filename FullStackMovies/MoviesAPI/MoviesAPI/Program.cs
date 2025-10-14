@@ -11,6 +11,7 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("MovieDbCS")));
 
 var app = builder.Build();
 
+
 //Asynchronous method to seed data into our DB
 using (var scope = app.Services.CreateScope())
 {
@@ -27,8 +28,10 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.MapGet("/", () => "Hello World!");
-app.MapMoviesEndpoints();
+app.MapMoviesEndpoints(); //for db.Movies
+app.MapGenresEndpoints(); // for db.Genres
 
+//Starts the HTTP server and begins listening for requests
 app.Run();
 
 //Understanding REST API Principles:

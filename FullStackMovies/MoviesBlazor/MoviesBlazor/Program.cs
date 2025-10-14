@@ -11,7 +11,8 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 //RazorComponents are a new feature in ASP.NET Core that allow you to build web applications using C# and HTML
 
-var movieAppUrl = builder.Configuration["MovieApiUrl"] ?? throw new Exception("MovieApiUrl is not set");//get the URL of the movie app from the configuration file
+var movieAppUrl = builder.Configuration["MovieApiUrl"] ?? throw new Exception("MovieApiUrl is not set");//get the URL of the movie app
+                                                                                                        //from the configuration file appsettings.json
 // ?? is equivalent to "is null ?"
 builder.Services.AddHttpClient<MoviesClient>(client => client.BaseAddress = new Uri(movieAppUrl)); //Add the HttpClient service to the container
 

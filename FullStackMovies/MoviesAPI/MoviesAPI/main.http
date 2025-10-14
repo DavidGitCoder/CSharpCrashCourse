@@ -20,3 +20,18 @@ Content-type:application/json
 
 ###
 DELETE https://localhost:7152/movies/14
+
+### GENRES ####
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+GET https://localhost:7152/genres/
+
+###
+GET https://localhost:7152/genres/7
+
+###
+POST https://localhost:7152/genres/
+Content-type:application/json
+
+{
+  "name":"Animation"
+}
